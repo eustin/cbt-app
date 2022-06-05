@@ -12,11 +12,12 @@ const JournalEntry = ({ title }) => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 15,
     marginHorizontal: 10,
-    marginTop: 5, 
+    marginTop: 10, 
     borderWidth: 1,
     borderColor: "gray",
+    borderRadius: 10,
   },
   title: {
     fontSize: 18,
