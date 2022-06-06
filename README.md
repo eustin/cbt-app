@@ -12,6 +12,7 @@ I'm an Android user with a Windows laptop running Ubuntu on WSL2. I haven't test
 
 * Android Studio
 * Node.js
+* npm
 
 ## How to run this app on your computer
 
