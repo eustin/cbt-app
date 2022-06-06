@@ -34,7 +34,7 @@ const journalEntries = [
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>Welcome back</Text>
       <Button title="Create a journal entry" onPress={() => navigation.navigate("Create Entry")}/>
       <FlatList
@@ -55,6 +55,9 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+  },
   title: {
     fontSize: 24,
     fontWeight: "bold",
