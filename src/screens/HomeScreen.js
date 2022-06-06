@@ -49,6 +49,7 @@ const HomeScreen = ({ navigation }) => {
           );
         }}
         keyExtractor={(journalEntry) => journalEntry.id}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
