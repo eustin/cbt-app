@@ -3,18 +3,6 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Button from "../components/Button";
 import JournalInput from "../components/JournalInput";
 
-/*{
-  id: 1,
-  situation: "I'm worried about my presentation that I need to give.",
-  threatCognition: "No one will like my presentation.",
-  emotions: "Worry, anxiety, fear",
-  behaviours: "Phone in sick. Try to avoid giving presentation.",
-  alternativeHypotheses: "People actually want to hear what I have to say.",
-  whatActuallyHappened:
-    "A colleague told me that it was the best presentation he's seen at work.",
-},
-*/
-
 const CreateEntryScreen = ({ navigation }) => {
   const [situation, setSituation] = useState("");
   const [thoughts, setThoughts] = useState("");
@@ -70,7 +58,7 @@ const CreateEntryScreen = ({ navigation }) => {
         <Text style={styles.question}>What actually happened?</Text>
         <JournalInput
           value={reality}
-          placeholder="E.g. A colleague told me that it was the best presentation they'd seen at work."
+          placeholder="E.g. A colleague told me that it was the best presentation they'd seen at work!"
           onChangeText={(newText) => setReality(newText)}
         />
 
