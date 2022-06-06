@@ -34,7 +34,7 @@ const journalEntries = [
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
-      <Text style={styles.title}>Welcome back!</Text>
+      <Text style={styles.title}>Welcome back</Text>
       <FlatList
         data={journalEntries}
         renderItem={({ item }) => {
