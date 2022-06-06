@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import JournalEntry from "../components/JournalEntry";
+import Button from "../components/Button";
 
 const journalEntries = [
   {
@@ -34,7 +35,8 @@ const journalEntries = [
 const HomeScreen = ({ navigation }) => {
   return (
     <View>
-      <Text style={styles.title}>Welcome back!</Text>
+      <Text style={styles.title}>Welcome back</Text>
+      <Button title="Create a journal entry" onPress={() => navigation.navigate("Create Entry")}/>
       <FlatList
         data={journalEntries}
         renderItem={({ item }) => {
