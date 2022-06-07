@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import ViewEntryScreen from './src/screens/ViewEntryScreen';
 import CreateEntryScreen from './src/screens/CreateEntryScreen';
+import { JournalContextProvider } from './src/context/JournalContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,4 +20,10 @@ const App = () => {
   );
 };
 
-export default App;
+export default () => {
+  return (
+    <JournalContextProvider>
+      <App />
+    </JournalContextProvider>
+  );
+}
