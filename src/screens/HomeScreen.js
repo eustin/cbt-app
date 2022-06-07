@@ -36,7 +36,10 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome back</Text>
-      <Button title="Create a journal entry" onPress={() => navigation.navigate("Create Entry")}/>
+      <Button
+        title="Create a journal entry"
+        onPress={() => navigation.navigate("Create Entry")}
+      />
       <FlatList
         data={journalEntries}
         renderItem={({ item }) => {
@@ -57,6 +60,7 @@ const HomeScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: "center",
   },
   title: {
