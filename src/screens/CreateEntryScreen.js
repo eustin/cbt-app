@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import Button from "../components/Button";
 import JournalInput from "../components/JournalInput";
+import { JournalContext } from "../context/JournalContext";
 
-const CreateEntryScreen = ({ navigation }) => {
+const CreateEntryScreen = () => {
   const [situation, setSituation] = useState("");
   const [thoughts, setThoughts] = useState("");
   const [emotions, setEmotions] = useState("");
@@ -11,6 +12,8 @@ const CreateEntryScreen = ({ navigation }) => {
   const [altHypotheses, setAltHypotheses] = useState("");
   const [reality, setReality] = useState("");
 
+  const { addEntry } = useContext(JournalContext);
+  
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -62,7 +65,7 @@ const CreateEntryScreen = ({ navigation }) => {
           onChangeText={(newText) => setReality(newText)}
         />
 
-        <Button title="Save" />
+        <Button title="Save" onPress={addEntry} />
       </ScrollView>
     </View>
   );
