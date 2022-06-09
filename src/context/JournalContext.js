@@ -26,15 +26,47 @@ const initialState = [
 ];
 
 
-const journalReducer = ({ state, action }) => {
-  
+// todo: complete actions
+const journalReducer = (state, action) => {
+  switch (action.type) {
+    case "add_entry":
+      return state;
+    case "edit_entry":
+      return state;
+    case "delete_entry":
+      return state;
+    default:
+      return state;
+  }
+};
+
+// todo: complete addEntry
+const addEntry = (dispatch) => {
+  return () => dispatch({ type: "add_entry" });
+};
+
+// todo: complete editEntry
+const editEntry = (dispatch) => {
+  return () => dispatch({ type: "edit_entry" });
+};
+
+// todo: complete deleteEntry
+const deleteEntry = (dispatch) => {
+  return () => dispatch({ type: "delete_entry" });
 };
 
 const JournalContextProvider = ({ children }) => {
   const [journalEntries, dispatch] = useReducer(journalReducer, initialState);
 
+  // todo: refactor this. it's a bit awkward.
+  const actions = {
+    addEntry: addEntry(dispatch),
+    editEntry: editEntry(dispatch),
+    deleteEntry: deleteEntry(dispatch),
+  };
+
   return (
-    <JournalContext.Provider value={{ journalEntries }}>
+    <JournalContext.Provider value={{ journalEntries, ...actions }}>
       {children}
     </JournalContext.Provider>
   );
