@@ -11,8 +11,63 @@ const CreateEntryScreen = ({ navigation }) => {
   const [behaviours, setBehaviours] = useState("");
   const [altHypotheses, setAltHypotheses] = useState("");
   const [reality, setReality] = useState("");
+  const [error, setError] = useState();
 
   const { addEntry } = useContext(JournalContext);
+
+  const onPressHandler = () => {
+    validateInputs();
+    if (error === null) {
+      addEntry(
+        situation,
+        thoughts,
+        emotions,
+        behaviours,
+        altHypotheses,
+        reality,
+        () => navigation.navigate("Home")
+      );
+    }
+  };
+
+  const validateInputs = () => {
+    if (situation === "") {
+      setError("Please describe the situation");
+      return;
+    }
+
+    if (thoughts === "") {
+      setError("Please describe the thougths you're having");
+      return;
+    }
+
+    if (emotions === "") {
+      setError("Please describe the emotions your experiencing");
+      return;
+    }
+
+    if (behaviours === "") {
+      setError("Please describe the behaviours you're exhibiting");
+      return;
+    }
+
+    if (altHypotheses === "") {
+      setError("Please describe any positive alternative hypotheses");
+      return;
+    }
+
+    if (behaviours === "") {
+      setError("Please describe the behaviours you're exhibiting");
+      return;
+    }
+
+    if (reality === "") {
+      setError("Please describe what actually happened");
+      return;
+    }
+
+    setError(null);
+  };
 
   return (
     <View style={styles.container}>
@@ -65,19 +120,12 @@ const CreateEntryScreen = ({ navigation }) => {
           onChangeText={(newText) => setReality(newText)}
         />
 
+        <Text style={styles.error}>{error}</Text>
+        
         <Button
           title="Save"
-          onPress={() =>
-            addEntry(
-              situation,
-              thoughts,
-              emotions,
-              behaviours,
-              altHypotheses,
-              reality,
-              () => navigation.navigate("Home")
-            )
-          }
+          disabled={Boolean(error)}
+          onPress={onPressHandler}
         />
       </ScrollView>
     </View>
@@ -94,6 +142,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
+  },
+  error: {
+    color: "red",
+    fontSize: 18,
   },
 });
 
