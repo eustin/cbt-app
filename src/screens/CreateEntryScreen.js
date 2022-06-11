@@ -5,32 +5,17 @@ import JournalInput from "../components/JournalInput";
 import { JournalContext } from "../context/JournalContext";
 
 const CreateEntryScreen = ({ navigation }) => {
+  const [error, setError] = useState();
   const [situation, setSituation] = useState("");
   const [thoughts, setThoughts] = useState("");
   const [emotions, setEmotions] = useState("");
   const [behaviours, setBehaviours] = useState("");
   const [altHypotheses, setAltHypotheses] = useState("");
   const [reality, setReality] = useState("");
-  const [error, setError] = useState();
 
   const { addEntry } = useContext(JournalContext);
 
   const onPressHandler = () => {
-    validateInputs();
-    if (error === null) {
-      addEntry(
-        situation,
-        thoughts,
-        emotions,
-        behaviours,
-        altHypotheses,
-        reality,
-        () => navigation.navigate("Home")
-      );
-    }
-  };
-
-  const validateInputs = () => {
     if (situation === "") {
       setError("Please describe the situation");
       return;
@@ -66,7 +51,15 @@ const CreateEntryScreen = ({ navigation }) => {
       return;
     }
 
-    setError(null);
+    addEntry(
+      situation,
+      thoughts,
+      emotions,
+      behaviours,
+      altHypotheses,
+      reality,
+      () => navigation.navigate("Home")
+    );
   };
 
   return (
@@ -121,7 +114,7 @@ const CreateEntryScreen = ({ navigation }) => {
         />
 
         <Text style={styles.error}>{error}</Text>
-        
+
         <Button
           title="Save"
           disabled={Boolean(error)}
