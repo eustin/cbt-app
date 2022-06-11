@@ -4,11 +4,11 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 const ViewEntryScreen = ({ route }) => {
   const {
     situation,
-    threatCognition,
+    thoughts,
     emotions,
     behaviours,
-    alternativeHypotheses,
-    whatActuallyHappened,
+    altHypotheses,
+    reality,
   } = route.params;
   return (
     <View style={styles.container}>
@@ -19,7 +19,7 @@ const ViewEntryScreen = ({ route }) => {
         <Text style={styles.question}>
           What thoughts are you having about it?
         </Text>
-        <Text style={styles.answer}>{threatCognition}</Text>
+        <Text style={styles.answer}>{thoughts}</Text>
 
         <Text style={styles.question}>What emotions are you experiencing?</Text>
         <Text style={styles.answer}>{emotions}</Text>
@@ -32,10 +32,10 @@ const ViewEntryScreen = ({ route }) => {
         <Text style={styles.question}>
           What are some positive alternative hypotheses?
         </Text>
-        <Text style={styles.answer}>{alternativeHypotheses}</Text>
+        <Text style={styles.answer}>{altHypotheses}</Text>
 
         <Text style={styles.question}>What actually happened?</Text>
-        <Text style={styles.answer}>{whatActuallyHappened}</Text>
+        <Text style={styles.answer}>{reality}</Text>
       </ScrollView>
     </View>
   );
