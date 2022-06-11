@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import JournalInput from "../components/JournalInput";
 import { JournalContext } from "../context/JournalContext";
 
-const CreateEntryScreen = () => {
+const CreateEntryScreen = ({ navigation }) => {
   const [situation, setSituation] = useState("");
   const [thoughts, setThoughts] = useState("");
   const [emotions, setEmotions] = useState("");
@@ -13,7 +13,7 @@ const CreateEntryScreen = () => {
   const [reality, setReality] = useState("");
 
   const { addEntry } = useContext(JournalContext);
-  
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -65,7 +65,20 @@ const CreateEntryScreen = () => {
           onChangeText={(newText) => setReality(newText)}
         />
 
-        <Button title="Save" onPress={addEntry} />
+        <Button
+          title="Save"
+          onPress={() =>
+            addEntry(
+              situation,
+              thoughts,
+              emotions,
+              behaviours,
+              altHypotheses,
+              reality,
+              () => navigation.navigate("Home")
+            )
+          }
+        />
       </ScrollView>
     </View>
   );

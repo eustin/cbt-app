@@ -27,12 +27,11 @@ const initialState = [
   },
 ];
 
-
 // todo: complete actions
 const journalReducer = (state, action) => {
   switch (action.type) {
     case "add_entry":
-      return state;
+      return [...state, action.payload];
     case "edit_entry":
       return state;
     case "delete_entry":
@@ -44,7 +43,29 @@ const journalReducer = (state, action) => {
 
 // todo: complete addEntry
 const addEntry = (dispatch) => {
-  return () => dispatch({ type: "add_entry" });
+  return (
+    situation,
+    thoughts,
+    emotions,
+    behaviours,
+    altHypotheses,
+    reality,
+    navigationCallback,
+  ) => {
+    dispatch({
+      type: "add_entry",
+      payload: {
+        uuid: uuidv4(),
+        situation,
+        thoughts,
+        emotions,
+        behaviours,
+        altHypotheses,
+        reality,
+      },
+    });
+    navigationCallback();
+  };
 };
 
 // todo: complete editEntry
