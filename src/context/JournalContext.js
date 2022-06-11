@@ -41,7 +41,6 @@ const journalReducer = (state, action) => {
   }
 };
 
-// todo: complete addEntry
 const addEntry = (dispatch) => {
   return (
     situation,
