@@ -8,22 +8,21 @@ const initialState = [
   {
     uuid: "some-uuid-1",
     situation: "I'm worried about my presentation that I need to give.",
-    threatCognition: "No one will like my presentation.",
+    thoughts: "No one will like my presentation.",
     emotions: "Worry, anxiety, fear",
     behaviours: "Phone in sick. Try to avoid giving presentation.",
-    alternativeHypotheses: "People actually want to hear what I have to say.",
-    whatActuallyHappened:
+    altHypotheses: "People actually want to hear what I have to say.",
+    reality:
       "A colleague told me that it was the best presentation he's seen at work.",
   },
   {
     uuid: "some-uuid-2",
     situation: "I feel stuck in my job and my career.",
-    threatCognition: "I'm not good enough and no one will hire me.",
+    thoughts: "I'm not good enough and no one will hire me.",
     emotions: "Fear, depressed, sad",
     behaviours: "Avoid looking for job. Socially withdraw.",
-    alternativeHypotheses: "I am highly employable.",
-    whatActuallyHappened:
-      "I applied to several roles and was invited to an interview!",
+    altHypotheses: "I am highly employable.",
+    reality: "I applied to several roles and was invited to an interview!",
   },
 ];
 
@@ -49,7 +48,7 @@ const addEntry = (dispatch) => {
     behaviours,
     altHypotheses,
     reality,
-    navigationCallback,
+    navigationCallback
   ) => {
     dispatch({
       type: "add_entry",
