@@ -6,7 +6,7 @@ const JournalContext = React.createContext();
 
 const initialState = [
   {
-    id: 1,
+    uuid: "some-uuid-1",
     situation: "I'm worried about my presentation that I need to give.",
     threatCognition: "No one will like my presentation.",
     emotions: "Worry, anxiety, fear",
@@ -16,7 +16,7 @@ const initialState = [
       "A colleague told me that it was the best presentation he's seen at work.",
   },
   {
-    id: 2,
+    uuid: "some-uuid-2",
     situation: "I feel stuck in my job and my career.",
     threatCognition: "I'm not good enough and no one will hire me.",
     emotions: "Fear, depressed, sad",

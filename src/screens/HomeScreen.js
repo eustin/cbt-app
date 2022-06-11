@@ -31,7 +31,7 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
           );
         }}
-        keyExtractor={(journalEntry) => journalEntry.id}
+        keyExtractor={(journalEntry) => journalEntry.uuid}
         showsVerticalScrollIndicator={false}
       />
     </View>
