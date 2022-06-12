@@ -16,11 +16,11 @@ Warning: It ain't pretty!
 
 ### Create a journal entry
 
-![app current state](https://media.giphy.com/media/lJ1vonL7KxzV6pUWII/giphy.gif)
+![app current state](https://media.giphy.com/media/SorsVynTd5XNwW01k7/giphy.gif)
  
 ### Edit a journal entry
 
-![edit a journal entry](https://media.giphy.com/media/phBq0WhoWfNUwLa7ac/giphy.gif)
+![edit a journal entry](https://media.giphy.com/media/WobvCvQ6BoFMQnnCNq/giphy.gif)
 
 ### Basic error handling when creating journal entry
 
