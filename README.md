@@ -3,6 +3,10 @@
 This will be a simple app that allows the user to complete CBT journal entries.
 
 The first version will not persist state in any way. All state will be held in memory.
+
+This is the current state of the app:
+
+![app current state](https://media.giphy.com/media/lJ1vonL7KxzV6pUWII/giphy.gif)
  
 ## Disclaimers
 
