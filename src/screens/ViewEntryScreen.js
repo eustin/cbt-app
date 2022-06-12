@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { JournalContext } from "../context/JournalContext";
 
 const ViewEntryScreen = ({ route }) => {
+  const { journalEntries } = useContext(JournalContext);
+  const { uuid } = route.params;
+  const journalEntry = journalEntries.find(
+    (journalEntry) => journalEntry.uuid === uuid
+  );
   const { situation, thoughts, emotions, behaviours, altHypotheses, reality } =
-    route.params;
+    journalEntry;
 
   return (
     <View style={styles.container}>
