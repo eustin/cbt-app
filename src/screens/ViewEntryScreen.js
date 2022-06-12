@@ -2,14 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 const ViewEntryScreen = ({ route }) => {
-  const {
-    situation,
-    thoughts,
-    emotions,
-    behaviours,
-    altHypotheses,
-    reality,
-  } = route.params;
+  const { situation, thoughts, emotions, behaviours, altHypotheses, reality } =
+    route.params;
+
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
