@@ -64,7 +64,10 @@ const CreateEntryScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView 
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
         <Text style={styles.question}>What is the situation?</Text>
         <JournalInput
           value={situation}
@@ -113,7 +116,7 @@ const CreateEntryScreen = ({ navigation }) => {
           onChangeText={(newText) => setReality(newText)}
         />
 
-        <Text style={styles.error}>{error}</Text>
+        {Boolean(error) && <Text style={styles.error}>{error}</Text>}
 
         <Button
           title="Save"
