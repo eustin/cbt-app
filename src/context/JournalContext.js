@@ -32,7 +32,10 @@ const journalReducer = (state, action) => {
     case "add_entry":
       return [...state, action.payload];
     case "edit_entry":
-      return state;
+      const { payload } = action;
+      return state.map((journalEntry) =>
+        journalEntry.uuid === payload.uuid ? payload : journalEntry
+      );
     case "delete_entry":
       return state;
     default:
@@ -68,7 +71,30 @@ const addEntry = (dispatch) => {
 
 // todo: complete editEntry
 const editEntry = (dispatch) => {
-  return () => dispatch({ type: "edit_entry" });
+  return (
+    uuid,
+    situation,
+    thoughts,
+    emotions,
+    behaviours,
+    altHypotheses,
+    reality,
+    navigationCallback
+  ) => {
+    dispatch({
+      type: "edit_entry",
+      payload: {
+        uuid,
+        situation,
+        thoughts,
+        emotions,
+        behaviours,
+        altHypotheses,
+        reality,
+      },
+    });
+    navigationCallback();
+  };
 };
 
 // todo: complete deleteEntry

@@ -4,6 +4,8 @@ import { JournalContext } from "../context/JournalContext";
 import Button from "../components/Button";
 import JournalInput from "../components/JournalInput";
 
+// todo: EditEntryScreen and CreateEntryScreen share common code. need to extract 
+//       common functionality into separate component 
 const EditEntryScreen = ({ navigation, route }) => {
   const { journalEntries, editEntry } = useContext(JournalContext);
   const { uuid } = route.params;
