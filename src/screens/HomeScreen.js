@@ -33,6 +33,7 @@ const HomeScreen = ({ navigation }) => {
         }}
         keyExtractor={(journalEntry) => journalEntry.uuid}
         showsVerticalScrollIndicator={false}
+        style={styles.list}
       />
     </View>
   );
@@ -48,6 +49,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingHorizontal: 10,
     marginVertical: 10,
+  },
+  list: {
+    alignSelf: "stretch",
   },
 });
 
