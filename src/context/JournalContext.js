@@ -26,7 +26,6 @@ const initialState = [
   },
 ];
 
-// todo: complete actions
 const journalReducer = (state, action) => {
   switch (action.type) {
     case "add_entry":
@@ -108,7 +107,6 @@ const deleteEntry = (dispatch) => {
 const JournalContextProvider = ({ children }) => {
   const [journalEntries, dispatch] = useReducer(journalReducer, initialState);
 
-  // todo: refactor this. it's a bit awkward.
   const actions = {
     addEntry: addEntry(dispatch),
     editEntry: editEntry(dispatch),
