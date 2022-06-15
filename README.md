@@ -43,3 +43,12 @@ I'm an Android user with a Windows laptop running Ubuntu on WSL2. I haven't test
 3. Run `npm run android`
 
 The app should soon appear on your AVD.
+
+## Next steps
+
+* It's time to refactor some code! 
+  * `EditEntryScreen` and `CreateEntryScreen` share a lot of common code. I'll extract the common functionality into a separate component. 
+  * The StackNavigator in `App.js` contains some complex logic to create and handle events related to the edit and delete icons. I'll do some research to see how others have extracted logic from their navigators to make `App.js` cleaner.
+  * I might create a theme context and wrap the app in a theme provider component.  
+* Make the app prettier!
+* Persist app state in local storage.
