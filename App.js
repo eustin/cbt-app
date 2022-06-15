@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -7,11 +7,16 @@ import HomeScreen from "./src/screens/HomeScreen";
 import ViewEntryScreen from "./src/screens/ViewEntryScreen";
 import CreateEntryScreen from "./src/screens/CreateEntryScreen";
 import EditEntryScreen from "./src/screens/EditEntryScreen";
-import { JournalContextProvider } from "./src/context/JournalContext";
+import {
+  JournalContext,
+  JournalContextProvider,
+} from "./src/context/JournalContext";
 
 const Stack = createNativeStackNavigator();
 
+// todo: extract header icons to own components
 const App = () => {
+  const { deleteEntry } = useContext(JournalContext);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -21,11 +26,29 @@ const App = () => {
           component={ViewEntryScreen}
           options={({ navigation, route }) => ({
             title: null,
-            headerRight: () => (
-              <TouchableOpacity onPress={() => navigation.navigate("Edit Entry", { uuid: route.params.uuid })}>
-                <Feather name="edit" style={styles.edit} />
-              </TouchableOpacity>
-            ),
+            headerRight: () => {
+              const { uuid } = route.params;
+              return (
+                <>
+                  <TouchableOpacity
+                    onPress={() =>
+                      deleteEntry(uuid, () => navigation.navigate("Home"))
+                    }
+                  >
+                    <Feather name="delete" style={styles.delete} />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() =>
+                      navigation.navigate("Edit Entry", {
+                        uuid: uuid,
+                      })
+                    }
+                  >
+                    <Feather name="edit" style={styles.edit} />
+                  </TouchableOpacity>
+                </>
+              );
+            },
           })}
         />
         <Stack.Screen
@@ -33,10 +56,10 @@ const App = () => {
           component={CreateEntryScreen}
           options={{ title: "Create a journal entry" }}
         />
-        <Stack.Screen 
+        <Stack.Screen
           name="Edit Entry"
           component={EditEntryScreen}
-          options={{ title: "Edit a journal entry"}}
+          options={{ title: "Edit a journal entry" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -45,7 +68,12 @@ const App = () => {
 
 const styles = StyleSheet.create({
   edit: {
-    fontSize: 24,
+    fontSize: 32,
+    color: "black",
+    marginLeft: 15,
+  },
+  delete: {
+    fontSize: 32,
     color: "black",
   },
 });
