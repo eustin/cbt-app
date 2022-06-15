@@ -37,7 +37,9 @@ const journalReducer = (state, action) => {
         journalEntry.uuid === payload.uuid ? payload : journalEntry
       );
     case "delete_entry":
-      return state;
+      return state.filter(
+        (journalEntry) => journalEntry.uuid !== action.payload.uuid
+      );
     default:
       return state;
   }
@@ -69,7 +71,6 @@ const addEntry = (dispatch) => {
   };
 };
 
-// todo: complete editEntry
 const editEntry = (dispatch) => {
   return (
     uuid,
@@ -97,9 +98,11 @@ const editEntry = (dispatch) => {
   };
 };
 
-// todo: complete deleteEntry
 const deleteEntry = (dispatch) => {
-  return () => dispatch({ type: "delete_entry" });
+  return (uuid, navigationCallback) => {
+    dispatch({ type: "delete_entry", payload: { uuid } });
+    navigationCallback();
+  };
 };
 
 const JournalContextProvider = ({ children }) => {
