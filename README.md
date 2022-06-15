@@ -17,14 +17,18 @@ Warning: It ain't pretty!
 ### Create a journal entry
 
 ![app current state](https://media.giphy.com/media/SorsVynTd5XNwW01k7/giphy.gif)
- 
+
+### Basic error handling when creating a journal entry
+
+![error handling](https://media.giphy.com/media/SaTPaIbYOVBpEIfFSh/giphy.gif)
+
 ### Edit a journal entry
 
 ![edit a journal entry](https://media.giphy.com/media/WobvCvQ6BoFMQnnCNq/giphy.gif)
 
-### Basic error handling when creating journal entry
+### Delete a journal entry
 
-![error handling](https://media.giphy.com/media/SaTPaIbYOVBpEIfFSh/giphy.gif)
+![delete a journal entry](https://media.giphy.com/media/TGzMIN2LTomhw0u63U/giphy.gif)
 
 ## Disclaimers
 
